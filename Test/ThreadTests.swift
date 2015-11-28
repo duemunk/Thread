@@ -81,7 +81,6 @@ class ThreadTests: XCTestCase {
 
         let thread = Thread()
         thread.enqueue {
-            XCTAssertEqual(thread.queue.count, 1)
             thread.emptyQueue()
             XCTAssertEqual(thread.queue.count, 0)
             expectation1.fulfill()
