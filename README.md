@@ -15,25 +15,50 @@ thread.enqueue {
 ```
 Blocks are removed from the queue just before they get run.
 
-Start and stop the thread:
+Start and cancel the life time of a thread:
 ```swift
+// Initialize unstarted
 let thread = Thread(start: false)
 thread.enqueue {
-    // Block is run on the thread
+    // ...
 }
 thread.enqueue {
-    // Block is run on the thread
+    // ...
 }
 // Start the thread to begin running queued up blocks
 thread.start()
 // and maybe stop the thread again. Blocks still in the queue
-thread.stop()
+thread.cancel()
 ```
 
-Clear queue:
+Pause and resume:
+```swift
+let thread = Thread()
+thread.enqueue {
+    // ...
+}
+// Pause
+thread.pause()
+
+// ... do other stuff
+
+thread.enqueue {
+    //...
+}
+// Begin running blocks from queue again
+thread.resume()
+```
+
+Empty queue:
 ```swift
 // Remove any blocks still in queue
-thread.clearQueue()
+thread.emptyQueue()
+```
+
+Empty queue:
+```swift
+// Remove any blocks still in queue
+thread.emptyQueue()
 ```
 
 ### When *not* to use
