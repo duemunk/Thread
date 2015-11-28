@@ -81,15 +81,19 @@ class ThreadTests: XCTestCase {
 
         let thread = Thread()
         thread.enqueue {
-            thread.emptyQueue()
-            XCTAssertEqual(thread.queue.count, 0)
             expectation1.fulfill()
+            NSThread.sleepForTimeInterval(0.1)
         }
         thread.enqueue {
             XCTFail("This block is enqueued after first block, so shouldn't be run")
         }
+        dispatch_async(dispatch_get_main_queue()) {
+            XCTAssertEqual(thread.queue.count, 1)
+            thread.emptyQueue()
+            XCTAssertEqual(thread.queue.count, 0)
+        }
 
-        asyncAfter(0.1) {
+        asyncAfter(0.2) {
             expectationWait.fulfill()
         }
 
