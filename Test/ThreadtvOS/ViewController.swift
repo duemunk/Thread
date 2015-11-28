@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Thread
+//  ThreadtvOS
 //
 //  Created by Tobias Due Munk on 28/11/15.
 //  Copyright © 2015 developmunk. All rights reserved.

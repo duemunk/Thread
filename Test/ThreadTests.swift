@@ -7,7 +7,13 @@
 //
 
 import XCTest
-@testable import Thread
+#if os(iOS)
+    @testable import ThreadiOS
+#elseif os(tvOS)
+    @testable import ThreadtvOS
+#elseif os(OSX)
+    @testable import ThreadOSX
+#endif
 
 class ThreadTests: XCTestCase {
     
