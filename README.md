@@ -35,7 +35,7 @@ thread.clearQueue()
 ```
 
 ### When *not* to use
-- **Thread** is very strict for running on *exactly* the same thread. For “just” running on another type of queue, like GCD does, use something like [**Async**](https://github.com/duemunk/Async) stuff, like sending things to a background queue before returning If you just want to run things on another queues.
+**Thread** is very strict for running on *exactly* the same thread. For do-on-background-return-on-main stuff, use the brilliant [**Async**](https://github.com/duemunk/Async) wrapper for GCD.
 
 ### License
 The MIT License (MIT)
