@@ -5,7 +5,7 @@
 
 A simple wrapper on NSThread to run blocks on *exactly* the same thread. It’s guaranteed First-In-First-Out (FIFO). 
 
-This code is based on the following StackOverflow answer: http://stackoverflow.com/a/22091859. Permission to redistribute has been granted by the original author (Marc Haisenko).
+This code is based on the following StackOverflow answer: http://stackoverflow.com/a/22091859. Permission to redistribute has been granted by the original author ([Marc Haisenko](https://github.com/darkdust)).
 
 ```swift
 let thread = Thread()
