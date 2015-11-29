@@ -55,10 +55,12 @@ Empty queue:
 thread.emptyQueue()
 ```
 
-Empty queue:
+Pre-enqueue with blocks:
 ```swift
-// Remove any blocks still in queue
-thread.emptyQueue()
+let thread = Thread(queue: [
+    { /* … */ },
+    { /* … */ }
+])
 ```
 
 ### When *not* to use
