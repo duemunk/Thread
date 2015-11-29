@@ -131,6 +131,11 @@ class ThreadTests: XCTestCase {
         // Wait
         waitForExpectationsWithTimeout(1, handler: nil)
     }
+
+    func testInitialQueue() {
+        let thread = Thread(start: false, queue: [{}, {}, {}])
+        XCTAssertEqual(thread.queue.count, 3, "Thread initialized with 3 blocks.")
+    }
 }
 
 

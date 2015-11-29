@@ -25,14 +25,27 @@ class Thread: NSThread {
      Designated initializer.
      - parameters:
         - start: Boolean whether thread should start immediately. Defaults to true.
+        - queue: Initial array of blocks to add to enqueue. Executed in order of objects in array.
     */
     init(start: Bool = true, queue: [Block]? = nil) {
         super.init()
+        // Add blocks initially to queue
+        if let queue = queue {
+            for block in queue {
+                enqueue(block)
+            }
+        }
+        // Start thread
         if start {
             self.start()
         }
     }
 
+    /**
+     The main entry point routine for the thread.
+     You should never invoke this method directly. You should always start your thread by invoking the start method.
+     Shouldn't invoke `super`.
+     */
     final override func main() {
 
         // Infinite loops until thread is cancelled
