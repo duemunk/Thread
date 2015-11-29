@@ -1,10 +1,11 @@
 # Thread
 [![](http://img.shields.io/badge/Swift-2.1-blue.svg)](https://developer.apple.com/swift) [![](http://img.shields.io/badge/Platforms-iOS_|%20OS%20X_|%20tvOS_|%20watchOS-blue.svg)]()
 [![](https://travis-ci.org/duemunk/Thread.svg)](https://travis-ci.org/duemunk/Thread)
+[![CocoaPods compatible](https://img.shields.io/badge/CocoaPods-compatible-4BC51D.svg)](https://cocoapods.org/pods/Thread)
 
 A simple wrapper on NSThread to run blocks on *exactly* the same thread. It’s guaranteed First-In-First-Out (FIFO). 
 
-This code is based on the following StackOverflow answer: http://stackoverflow.com/a/22091859. Permission to redistribute has been granted by the original author (Marc Haisenko).
+This code is based on the following StackOverflow answer: http://stackoverflow.com/a/22091859. Permission to redistribute has been granted by the original author ([Marc Haisenko](https://github.com/darkdust)).
 
 ```swift
 let thread = Thread()
@@ -14,25 +15,50 @@ thread.enqueue {
 ```
 Blocks are removed from the queue just before they get run.
 
-Start and stop the thread:
+Start and cancel the life time of a thread:
 ```swift
+// Initialize unstarted
 let thread = Thread(start: false)
 thread.enqueue {
-    // Block is run on the thread
+    // ...
 }
 thread.enqueue {
-    // Block is run on the thread
+    // ...
 }
 // Start the thread to begin running queued up blocks
 thread.start()
 // and maybe stop the thread again. Blocks still in the queue
-thread.stop()
+thread.cancel()
 ```
 
-Clear queue:
+Pause and resume:
+```swift
+let thread = Thread()
+thread.enqueue {
+    // ...
+}
+// Pause
+thread.pause()
+
+// ... do other stuff
+
+thread.enqueue {
+    //...
+}
+// Begin running blocks from queue again
+thread.resume()
+```
+
+Empty queue:
 ```swift
 // Remove any blocks still in queue
-thread.clearQueue()
+thread.emptyQueue()
+```
+
+Empty queue:
+```swift
+// Remove any blocks still in queue
+thread.emptyQueue()
 ```
 
 ### When *not* to use
