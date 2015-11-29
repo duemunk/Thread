@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Thread"
-  s.version          = "1.0.0"
+  s.version          = "1.0.1"
   s.summary          = "A simple wrapper on NSThread to run blocks on exactly the same thread. It’s guaranteed First-In-First-Out (FIFO)."
   s.homepage         = "https://github.com/duemunk/Thread"
   s.license          = 'MIT'
