@@ -12,8 +12,11 @@
 
 import Foundation
 
+/// Used to resolve naming conflicts and unit tests
+typealias SwiftyThread = Thread
+
 /// FIFO. First-In-First-Out guaranteed on exactly same thread.
-class Thread: NSThread {
+class Thread: Foundation.Thread {
     
     typealias Block = () -> ()
 
@@ -56,14 +59,14 @@ class Thread: NSThread {
 
             // 2. Test a boolean predicate. (This predicate is a boolean flag or other variable in your code that indicates whether it is safe to perform the task protected by the condition.)
             // If no blocks (or paused) and not cancelled
-            while (queue.count == 0 || paused) && !cancelled  {
+            while (queue.count == 0 || paused) && !isCancelled  {
                 // 3. If the boolean predicate is false, call the condition object’s wait or waitUntilDate: method to block the thread. Upon returning from these methods, go to step 2 to retest your boolean predicate. (Continue waiting and retesting the predicate until it is true.)
                 condition.wait()
             }
             // 4. If the boolean predicate is true, perform the task.
 
             // If your thread supports cancellation, it should check this property periodically and exit if it ever returns true.
-            if (cancelled) {
+            if (isCancelled) {
                 condition.unlock()
                 return
             }
@@ -84,7 +87,7 @@ class Thread: NSThread {
      - parameters:
         - block: The code to run.
      */
-    final func enqueue(block: Block) {
+    final func enqueue(_ block: @escaping Block) {
         // Lock to ensure first-in gets added to array first
         condition.lock()
         // Add to queue

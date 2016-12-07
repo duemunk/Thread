@@ -329,28 +329,36 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = developmunk;
 				TargetAttributes = {
 					4E4694331C09F3370063D651 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0810;
 					};
 					4E4694461C09F3370063D651 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0810;
 						TestTargetID = 4E4694331C09F3370063D651;
 					};
 					4E4694591C09F38E0063D651 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
 					};
 					4E4694691C09F38E0063D651 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0810;
 						TestTargetID = 4E4694591C09F38E0063D651;
 					};
 					4E46947C1C0A585D0063D651 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
 					};
 					4E46948A1C0A585D0063D651 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0810;
 						TestTargetID = 4E46947C1C0A585D0063D651;
 					};
 				};
@@ -553,8 +561,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -578,8 +588,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -597,8 +609,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -617,6 +631,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -809,6 +825,7 @@
 				4E4694501C09F3370063D651 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E4694511C09F3370063D651 /* Build configuration list for PBXNativeTarget "ThreadiOSTests" */ = {
 			isa = XCConfigurationList;
@@ -817,6 +834,7 @@
 				4E4694531C09F3370063D651 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E4694711C09F38E0063D651 /* Build configuration list for PBXNativeTarget "ThreadtvOS" */ = {
 			isa = XCConfigurationList;
@@ -825,6 +843,7 @@
 				4E4694731C09F38E0063D651 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E4694741C09F38E0063D651 /* Build configuration list for PBXNativeTarget "ThreadtvOSTests" */ = {
 			isa = XCConfigurationList;
@@ -833,6 +852,7 @@
 				4E4694761C09F38E0063D651 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E4694921C0A585D0063D651 /* Build configuration list for PBXNativeTarget "ThreadOSX" */ = {
 			isa = XCConfigurationList;
@@ -841,6 +861,7 @@
 				4E4694941C0A585D0063D651 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E4694951C0A585D0063D651 /* Build configuration list for PBXNativeTarget "ThreadOSXTests" */ = {
 			isa = XCConfigurationList;
@@ -849,6 +870,7 @@
 				4E4694971C0A585D0063D651 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
