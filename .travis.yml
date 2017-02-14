@@ -1,7 +1,7 @@
 language: objective-c
 osx_image: xcode8
 xcode_project: "Test/Thread.xcodeproj"
-xcode_scheme: ThreadOSX
+xcode_scheme: ThreadiOS
 xcode_sdk: iphonesimulator10.0
 before_install:
   - gem install xcpretty
