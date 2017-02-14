@@ -1,5 +1,22 @@
-osx_image: xcode8.1
 language: objective-c
+osx_image: xcode8
+
+env:
+  global:
+  - PROJECT="Test/Thread.xcodeproj"
+
+before_install:
+  - gem install xcpretty
 
 script:
-- xctool build test -project Test/Thread.xcodeproj -scheme "ThreadOSX"
+  - set -o pipefail
+  - xcodebuild -version
+  - xcodebuild -showsdks
+  
+  - xcodebuild -project "$PROJECT" -scheme 'ThreadiOS' -destination 'name=iPhone 6,OS=10.0' ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO build | xcpretty
+  - xcodebuild -project "$PROJECT" -scheme 'ThreadtvOS' -sdk appletvsimulator10.0 -destination 'name=Apple TV 1080p' ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO build | xcpretty
+  - xcodebuild -project "$PROJECT" -scheme 'ThreadOSX' ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO build | xcpretty
+  
+  - xcodebuild -project "$PROJECT" -scheme 'ThreadiOS' -sdk iphonesimulator -destination 'name=iPhone 6,OS=10.0' ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO test | xcpretty
+  - xcodebuild -project "$PROJECT" -scheme 'ThreadtvOS' -sdk appletvsimulator10.0 -destination 'name=Apple TV 1080p' ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO test | xcpretty
+  - xcodebuild -project "$PROJECT" -scheme 'ThreadOSX' ONLY_ACTIVE_ARCH=NO CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO test | xcpretty
