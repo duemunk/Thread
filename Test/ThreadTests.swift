@@ -30,7 +30,7 @@ class ThreadTests: XCTestCase {
     func testEnqueueSingle() {
         let expectation = self.expectation(description: "First")
 
-        let thread = SwiftyThread()
+        let thread = threadForPlatform()
         thread.enqueue {
             expectation.fulfill()
         }
@@ -41,7 +41,7 @@ class ThreadTests: XCTestCase {
         let expectation1 = expectation(description: "First")
         let expectation2 = expectation(description: "Second")
 
-        let thread = SwiftyThread()
+        let thread = threadForPlatform()
         var visitedFirst = false
         thread.enqueue {
             expectation1.fulfill()
@@ -58,7 +58,7 @@ class ThreadTests: XCTestCase {
         let expectation1 = expectation(description: "First")
         let expectationWait = expectation(description: "Wait")
 
-        let thread = SwiftyThread()
+        let thread = threadForPlatform()
         thread.enqueue {
             thread.cancel()
             expectation1.fulfill()
@@ -79,7 +79,7 @@ class ThreadTests: XCTestCase {
         let expectation1 = expectation(description: "First")
         let expectationWait = expectation(description: "Wait")
 
-        let thread = SwiftyThread()
+        let thread = threadForPlatform()
         thread.enqueue {
             expectation1.fulfill()
             Thread.sleep(forTimeInterval: 0.1)
@@ -106,7 +106,7 @@ class ThreadTests: XCTestCase {
         let expectation2 = expectation(description: "Second")
         let expectationWait = expectation(description: "Wait")
 
-        let thread = SwiftyThread()
+        let thread = threadForPlatform()
         var paused: Bool = false
         var resumed: Bool = false
         thread.enqueue {
@@ -141,6 +141,14 @@ class ThreadTests: XCTestCase {
 
 extension ThreadTests {
 
+    #if os(iOS)
+    fileprivate func threadForPlatform() -> ThreadiOS.Thread { return ThreadiOS.Thread() }
+    #elseif os(tvOS)
+    fileprivate func threadForPlatform() -> ThreadtvOS.Thread { return ThreadtvOS.Thread() }
+    #elseif os(OSX)
+    fileprivate func threadForPlatform() -> ThreadOSX.Thread { return ThreadOSX.Thread() }
+    #endif
+    
     fileprivate func asyncAfter(_ seconds: Double, queue: DispatchQueue = DispatchQueue.main, block: @escaping ()->()) {
         let nanoSeconds = Int64(seconds * Double(NSEC_PER_SEC))
         let time = DispatchTime.now() + Double(nanoSeconds) / Double(NSEC_PER_SEC)

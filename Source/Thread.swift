@@ -12,9 +12,6 @@
 
 import Foundation
 
-/// Used to resolve naming conflicts and unit tests
-typealias SwiftyThread = Thread
-
 /// FIFO. First-In-First-Out guaranteed on exactly same thread.
 class Thread: Foundation.Thread {
     
