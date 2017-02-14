@@ -1,10 +1,9 @@
 language: objective-c
 osx_image: xcode8
-xcode_project: "Test/Thread.xcodeproj"
-xcode_scheme: ThreadiOS
-xcode_sdk: iphonesimulator10.0
+
 before_install:
   - gem install xcpretty
+  
 script:
-  - set -o pipefail
-  - xcodebuild -project $TRAVIS_XCODE_PROJECT -scheme $TRAVIS_XCODE_SCHEME -sdk $TRAVIS_XCODE_SDK -destination 'name=iPhone 6' test | xcpretty -c
+  - set -o pipefail && xcodebuild clean build test -project Test/Thread.xcodeproj -scheme "ThreadOSX" GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES ONLY_ACTIVE_ARCH=NO | xcpretty
+  - set -o pipefail && xcodebuild test -project Test/Thread.xcodeproj -scheme "ThreadOSX" | xcpretty
