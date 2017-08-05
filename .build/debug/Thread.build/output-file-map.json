@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/Volumes/CalebsHD/Development/backEndWebDev/personal/vapor/packages/Thread/.build/debug/Thread.build/master.swiftdeps"
+  },
+  "/Volumes/CalebsHD/Development/backEndWebDev/personal/vapor/packages/Thread/Source/Thread.swift": {
+    "dependencies": "/Volumes/CalebsHD/Development/backEndWebDev/personal/vapor/packages/Thread/.build/debug/Thread.build/Thread.d",
+    "object": "/Volumes/CalebsHD/Development/backEndWebDev/personal/vapor/packages/Thread/.build/debug/Thread.build/Thread.swift.o",
+    "swiftmodule": "/Volumes/CalebsHD/Development/backEndWebDev/personal/vapor/packages/Thread/.build/debug/Thread.build/Thread~partial.swiftmodule",
+    "swift-dependencies": "/Volumes/CalebsHD/Development/backEndWebDev/personal/vapor/packages/Thread/.build/debug/Thread.build/Thread.swiftdeps"
+  }
+}
