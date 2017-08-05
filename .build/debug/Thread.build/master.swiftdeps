@@ -1,5 +1,0 @@
-version: "Apple Swift version 4.0 (swiftlang-900.0.43 clang-900.0.22.8)"
-options: "5163e20e7959545d6fa36be08f674f12"
-build_time: [1501944782, 62508000]
-inputs:
-  "/Volumes/CalebsHD/Development/backEndWebDev/personal/vapor/packages/Thread/Source/Thread.swift": [1501944754, 0]
